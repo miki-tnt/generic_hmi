@@ -1,0 +1,910 @@
+/* Font copied in place by React Studio. Please check that your license for this font file permits embedding on a website. */
+@font-face {
+  font-family: 'Helvetica';
+  src: url('fonts/Helvetica.ttf');
+}
+
+.font-helvetica {
+  font-family: 'Helvetica', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+}
+
+.App { /* Base font style */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+  font-size: 15.2px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: rgba(0, 0, 0, 0.8500);
+  background-color: #f6f6f6;
+}
+
+.App .baseFont * { /* Base font style override for UI framework components */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+  font-size: 15.2px;
+}
+
+.App .appBg {
+  background-color: #f6f6f6;
+}
+
+.App .cardBg {
+  background-color: white;
+}
+
+.App .baseTextBg { /* Base text color as background */
+  background-color: rgba(0, 0, 0, 0.8500);
+}
+
+.App .secondaryTextColor {
+  color: rgba(0, 0, 0, 0.5000);
+}
+
+.App .secondaryTextBg {
+  background-color: rgba(0, 0, 0, 0.5000);
+}
+
+.App .primaryTextColor {
+  color: #bee9ee;
+}
+
+.App .primaryBg {
+  background-color: #bee9ee;
+}
+
+.App .highlightTextColor {
+  color: #0093d5;
+}
+
+.App .highlightBg {
+  background-color: #0093d5;
+}
+
+/* Styles to customize the UI framework plugin (MUI, https://muicss.com) */
+.mui-btn {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.mui-btn--primary {
+    background-color: #bee9ee;
+}
+.mui-btn--primary:active, .mui-btn--primary:focus, .mui-btn--primary:hover {
+    background-color: #c3ebf0;
+}
+.mui-btn--accent {
+    background-color: #0093d5;
+}
+.mui-btn--accent:active, .mui-btn--accent:focus, .mui-btn--accent:hover {
+    background-color: #069fda;
+}
+.mui-textfield {  /* Reset UI framework styling that affects layout */
+    padding-top: 0;
+    margin-bottom: 0;
+}
+.mui-checkbox, .mui-radio {  /* Reset UI framework styling that affects layout */
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.mui-select {  /* Reset UI framework styling that affects layout */
+    padding-top: 0;
+    margin-bottom: 0;
+}
+.mui-btn+.mui-btn {  /* Reset UI framework styling that affects layout */
+    margin-left: 0;
+}
+.mui-btn--fab {  /* Reset UI framework styling that breaks compositing */
+    z-index: auto;
+}
+
+@keyframes fadeIn {
+    0%   { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+@keyframes slideIn_right {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+}
+@keyframes slideIn_bottom {
+    0%   { transform: translateY(100%); }
+    100% { transform: translateY(0); }
+}
+
+/* App-wide text styles specified in React Studio */
+.App .actionFont {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+  font-size: 14.2px;
+  font-weight: 400;
+}
+.App .actionFont * {
+  font-size: 14.2px;
+}
+.App .headlineFont {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+  font-size: 19.0px;
+  font-weight: 400;
+}
+.App .headlineFont * {
+  font-size: 19.0px;
+}
+.App .navBar {
+  background-color: #bee9ee;
+  color: black;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 62px;
+  min-height: 62px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+  font-size: 18px;
+}
+
+.App .navBar a {
+  color: black;
+}
+
+.App .navBar .title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding: 4px;
+  margin-top: 13px;
+}
+
+.App .navBar .backBtn {
+  position: absolute;
+  padding: 4px;
+  margin-left: 14px;
+  margin-top: 13px;
+  cursor: pointer;
+}
+
+@media (min-width: 320px) {
+  .mui-container {
+    max-width: 320px;
+  }
+}
+@media (min-width: 568px) {
+  .mui-container {
+    max-width: 568px;
+  }
+}
+@media (min-width: 768px) {
+  .mui-container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .mui-container {
+    max-width: 1024px;
+  }
+}
+
+.AppScreen {
+  padding-left: 0;
+  padding-right: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+.App .background {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.App .layoutFlow {
+  position: relative;
+  width: 100%;
+  pointer-events: none;
+}
+.App .layoutFlow:before {  /* Prevent margin collapse */
+  content: "";
+  display: table;
+  clear: both;
+}
+.App .layoutFlow .flowRow {
+  position: relative;
+  width: 100%;
+}
+
+.App .screenFgContainer {
+  /* Items in the foreground group within a screen are placed with fixed positioning */
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.App .foreground {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.App ul {
+  margin: 0;
+  padding: 0;
+}
+.App li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  position: relative;
+}
+.App .hasNestedComps {
+  position: relative;
+}
+.App .hasNestedComps:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.App .hasNestedComps .background {
+  position: absolute;
+}
+.App .hasNestedComps .layoutFlow {
+  position: relative;
+}
+.App .bottomAlignedContent {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.App .blockInputOverlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: auto;
+  z-index: 99999999;
+}
+
+/* This component has a fixed-size layout */
+  .Fbtn_back {
+    min-height: 75px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 202px */
+    height: 100%;
+  }
+  .Fbtn_back > .background > .containerMinHeight {
+    min-height: 75px;
+  }
+
+
+  .Fbtn_back > .foreground > .elBn {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 200px;
+    height: 75px;
+  }
+
+
+  .Fbtn_back > .foreground > .elBACK {
+    position: absolute;
+    left: -4px;
+    top: 21px;
+    width: 210px;
+    height: 38px;
+  }
+
+/* This component has a fixed-size layout */
+  .Fbtn_menu {
+    min-height: 72px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 200px */
+    height: 100%;
+  }
+  .Fbtn_menu > .background > .containerMinHeight {
+    min-height: 72px;
+  }
+
+
+  .Fbtn_menu > .foreground > .elBn {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 200px;
+    height: 71px;
+  }
+
+
+  .Fbtn_menu > .foreground > .elMENU {
+    position: absolute;
+    left: -5px;
+    top: 20px;
+    width: 210px;
+    height: 38px;
+  }
+
+/* This component has a fixed-size layout */
+  .Flistgroup_playlist {
+    min-height: 425px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 425px */
+    height: 100%;
+  }
+  .Flistgroup_playlist > .background > .containerMinHeight {
+    min-height: 425px;
+  }
+
+
+  .Flistgroup_playlist > .foreground > .elBn {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 425px;
+    height: 425px;
+  }
+
+
+  .Flistgroup_playlist > .foreground > .elFlistgroupitem {
+    position: absolute;
+    left: 21px;
+    top: 325px;
+    width: 382px;
+    height: 38px;
+  }
+
+
+  .Flistgroup_playlist > .foreground > .elFlistgroupitem2 {
+    position: absolute;
+    left: 21px;
+    top: 252px;
+    width: 382px;
+    height: 38px;
+  }
+
+
+  .Flistgroup_playlist > .foreground > .elFlistgroupitem3 {
+    position: absolute;
+    left: 20px;
+    top: 175px;
+    width: 382px;
+    height: 38px;
+  }
+
+
+  .Flistgroup_playlist > .foreground > .elFlistgroupitem4 {
+    position: absolute;
+    left: 21px;
+    top: 100px;
+    width: 382px;
+    height: 38px;
+  }
+
+
+  .Flistgroup_playlist > .foreground > .elFlistgroupitem5 {
+    position: absolute;
+    left: 20px;
+    top: 25px;
+    width: 382px;
+    height: 38px;
+  }
+
+/* This component has a fixed-size layout */
+  .Fslider {
+    min-height: 72px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 1176px */
+    height: 100%;
+  }
+  .Fslider > .background > .containerMinHeight {
+    min-height: 72px;
+  }
+
+
+  .Fslider > .foreground > .elTrackbar {
+    position: absolute;
+    left: 0px;
+    top: 48px;
+    width: 1175px;
+    height: 10px;
+  }
+
+
+  .Fslider > .foreground > .elActivebar {
+    position: absolute;
+    left: 0px;
+    top: 48px;
+    width: 1175px;
+    height: 10px;
+  }
+
+
+  .Fslider > .foreground > .elSlider {
+    position: absolute;
+    left: 344px;
+    top: 32px;
+    width: 36px;
+    height: 38px;
+  }
+
+
+  .Fslider > .foreground > .elTime_current {
+    position: absolute;
+    left: 1098px;
+    top: 1px;
+    width: 80px;
+    height: 38px;
+  }
+
+
+  .Fslider > .foreground > .elTime_length {
+    position: absolute;
+    left: -2px;
+    top: 0px;
+    width: 80px;
+    height: 38px;
+  }
+
+/* This component has a fixed-size layout */
+  .Fbtn_next {
+    min-height: 98px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 98px */
+    height: 100%;
+  }
+  .Fbtn_next > .background > .containerMinHeight {
+    min-height: 98px;
+  }
+
+
+  .Fbtn_next > .foreground > .elBn {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 98px;
+    height: 98px;
+  }
+
+
+  .Fbtn_next > .foreground > .elIcon {
+    position: absolute;
+    left: 12px;
+    top: 20px;
+    width: 69px;
+    height: 56px;
+  }
+
+/* This component has a fixed-size layout */
+  .Fbtn_play {
+    min-height: 130px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 130px */
+    height: 100%;
+  }
+  .Fbtn_play > .background > .containerMinHeight {
+    min-height: 130px;
+  }
+
+
+  .Fbtn_play > .foreground > .elFbtn_play {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 130px;
+    height: 130px;
+  }
+
+/* This component has a fixed-size layout */
+  .Fbtn_prev {
+    min-height: 98px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 98px */
+    height: 100%;
+  }
+  .Fbtn_prev > .background > .containerMinHeight {
+    min-height: 98px;
+  }
+
+
+  .Fbtn_prev > .foreground > .elFbtn_prev {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 98px;
+    height: 98px;
+  }
+
+
+  .Fbtn_prev > .foreground > .elTriangle {
+    position: absolute;
+    left: 25px;
+    top: 21px;
+    width: 56px;
+    height: 56px;
+  }
+
+
+  .Fbtn_prev > .foreground > .elRectangle {
+    position: absolute;
+    left: 12px;
+    top: 21px;
+    width: 12px;
+    height: 56px;
+  }
+
+/* This component has a fixed-size layout */
+  .Fbtn_source {
+    min-height: 72px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 202px */
+    height: 100%;
+  }
+  .Fbtn_source > .background > .containerMinHeight {
+    min-height: 72px;
+  }
+
+
+  .Fbtn_source > .foreground > .elBn {
+    position: absolute;
+    left: 1px;
+    top: 0px;
+    width: 200px;
+    height: 71px;
+  }
+
+
+  .Fbtn_source > .foreground > .elSOURCE {
+    position: absolute;
+    left: -4px;
+    top: 20px;
+    width: 210px;
+    height: 38px;
+  }
+
+/* This component has a fixed-size layout */
+  .Fbtn_pause {
+    min-height: 130px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 130px */
+    height: 100%;
+  }
+  .Fbtn_pause > .background > .containerMinHeight {
+    min-height: 130px;
+  }
+
+
+  .Fbtn_pause > .foreground > .elBn {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 130px;
+    height: 130px;
+  }
+
+
+  .Fbtn_pause > .foreground > .elIcon {
+    position: absolute;
+    left: 28px;
+    top: 21px;
+    width: 75px;
+    height: 88px;
+  }
+
+/* This component has a fixed-size layout */
+  .Fbtn_player {
+    min-height: 250px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 250px */
+    height: 100%;
+  }
+  .Fbtn_player > .background > .containerMinHeight {
+    min-height: 250px;
+  }
+
+
+  .Fbtn_player > .foreground > .elBn {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 250px;
+    height: 250px;
+  }
+
+
+  .Fbtn_player > .foreground > .elAUDIOPLAYER {
+    position: absolute;
+    left: 19px;
+    top: 109px;
+    width: 211px;
+    height: 70px;
+  }
+
+.PlayerScreen {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+  .PlayerScreen > .background > .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    width: 100.0%;
+    height: 100%;
+  }
+
+.PlayerScreen .elFbtn_next {
+  overflow: hidden;
+}
+
+.PlayerScreen .elFbtn_next.hasNestedComps > div {
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+  .PlayerScreen > .screenFgContainer > .foreground > .elFbtn_next {
+    position: absolute;
+    left: 752px;
+    top: 812px;
+    width: 98px;
+    height: 98px;
+  }
+  .PlayerScreen > .screenFgContainer > .foreground > .elFbtn_next > .background > .containerMinHeight {
+    min-height: 98px;
+  }
+
+
+.PlayerScreen .elFbtn_pause {
+  overflow: hidden;
+}
+
+.PlayerScreen .elFbtn_pause.hasNestedComps > div {
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+  .PlayerScreen > .screenFgContainer > .foreground > .elFbtn_pause {
+    position: absolute;
+    left: 575px;
+    top: 795px;
+    width: 130px;
+    height: 130px;
+  }
+  .PlayerScreen > .screenFgContainer > .foreground > .elFbtn_pause > .background > .containerMinHeight {
+    min-height: 130px;
+  }
+
+
+.PlayerScreen .elFbtn_play {
+  overflow: hidden;
+}
+
+.PlayerScreen .elFbtn_play.hasNestedComps > div {
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+  .PlayerScreen > .screenFgContainer > .foreground > .elFbtn_play {
+    position: absolute;
+    left: 575px;
+    top: 796px;
+    width: 130px;
+    height: 130px;
+  }
+  .PlayerScreen > .screenFgContainer > .foreground > .elFbtn_play > .background > .containerMinHeight {
+    min-height: 130px;
+  }
+
+
+.PlayerScreen .elFbtn_prev {
+  overflow: hidden;
+}
+
+.PlayerScreen .elFbtn_prev.hasNestedComps > div {
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+  .PlayerScreen > .screenFgContainer > .foreground > .elFbtn_prev {
+    position: absolute;
+    left: 428px;
+    top: 812px;
+    width: 98px;
+    height: 98px;
+  }
+  .PlayerScreen > .screenFgContainer > .foreground > .elFbtn_prev > .background > .containerMinHeight {
+    min-height: 98px;
+  }
+
+
+.PlayerScreen .elFslider {
+  overflow: hidden;
+}
+
+.PlayerScreen .elFslider.hasNestedComps > div {
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+  .PlayerScreen > .screenFgContainer > .foreground > .elFslider {
+    position: absolute;
+    left: 50px;
+    top: 675px;
+    width: 1175px;
+    height: 72px;
+  }
+  .PlayerScreen > .screenFgContainer > .foreground > .elFslider > .background > .containerMinHeight {
+    min-height: 72px;
+  }
+
+
+.PlayerScreen .elFlistgroup_playlist {
+  overflow: hidden;
+}
+
+.PlayerScreen .elFlistgroup_playlist.hasNestedComps > div {
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+  .PlayerScreen > .screenFgContainer > .foreground > .elFlistgroup_playlist {
+    position: absolute;
+    left: 800px;
+    top: 175px;
+    width: 425px;
+    height: 450px;
+  }
+  .PlayerScreen > .screenFgContainer > .foreground > .elFlistgroup_playlist > .background > .containerMinHeight {
+    min-height: 425px;
+  }
+
+
+
+  .PlayerScreen > .screenFgContainer > .foreground > .elFimage_albumart {
+    position: absolute;
+    left: 236px;
+    top: 236px;
+    width: 328px;
+    height: 328px;
+  }
+
+.PlayerScreen .elFbtn_back {
+  overflow: hidden;
+}
+
+.PlayerScreen .elFbtn_back.hasNestedComps > div {
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+  .PlayerScreen > .screenFgContainer > .foreground > .elFbtn_back {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    width: 202px;
+    height: 75px;
+  }
+  .PlayerScreen > .screenFgContainer > .foreground > .elFbtn_back > .background > .containerMinHeight {
+    min-height: 75px;
+  }
+
+
+.PlayerScreen .elFbtn_menu {
+  overflow: hidden;
+}
+
+.PlayerScreen .elFbtn_menu.hasNestedComps > div {
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+  .PlayerScreen > .screenFgContainer > .foreground > .elFbtn_menu {
+    position: absolute;
+    left: 1025px;
+    top: 54px;
+    width: 200px;
+    height: 72px;
+  }
+  .PlayerScreen > .screenFgContainer > .foreground > .elFbtn_menu > .background > .containerMinHeight {
+    min-height: 72px;
+  }
+
+
+.PlayerScreen .elFbtn_source {
+  overflow: hidden;
+}
+
+.PlayerScreen .elFbtn_source.hasNestedComps > div {
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+  .PlayerScreen > .screenFgContainer > .foreground > .elFbtn_source {
+    position: absolute;
+    left: 799px;
+    top: 54px;
+    width: 202px;
+    height: 72px;
+  }
+  .PlayerScreen > .screenFgContainer > .foreground > .elFbtn_source > .background > .containerMinHeight {
+    min-height: 72px;
+  }
+
+
+.HomeScreen {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+  .HomeScreen > .background > .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .HomeScreen > .screenFgContainer > .foreground > .elFtext_homepage {
+    position: absolute;
+    left: 522px;
+    top: 64px;
+    width: 235px;
+    height: 98px;
+  }
+
+.HomeScreen .elFbtn_player {
+  overflow: hidden;
+}
+
+.HomeScreen .elFbtn_player.hasNestedComps > div {
+  overflow: hidden;
+  position: relative;
+}
+
+
+
+  .HomeScreen > .screenFgContainer > .foreground > .elFbtn_player {
+    position: absolute;
+    left: 250px;
+    top: 250px;
+    width: 251px;
+    height: 251px;
+  }
+  .HomeScreen > .screenFgContainer > .foreground > .elFbtn_player > .background > .containerMinHeight {
+    min-height: 250px;
+  }
+
+
