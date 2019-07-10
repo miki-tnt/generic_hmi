@@ -19,7 +19,7 @@ module.exports = {
         ],
         loaders: [
             {
-                test: /\.scss$/,
+                test: /\.(sc|c)ss$/,
                 include: /src/,
                 loaders: [
                     'style',
@@ -39,9 +39,16 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 loaders: [
                     'react-hot',
-                    'babel?presets[]=stage-0,presets[]=react,presets[]=es2015'
+                    'babel?presets[]=react,presets[]=es2015,presets[]=stage-0'
                 ]
             },
+              {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                loaders: [
+                  'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
+                  'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
+                ]
+              } ,
             {
                 test: /\.(eot|ttf|woff|woff2)$/,
                 loaders: ['file?name=fonts/[hash].[ext]']
